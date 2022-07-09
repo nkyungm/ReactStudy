@@ -13,9 +13,36 @@
   - **렌더링**
     - 사용자 화면에 뷰를 보여주는 것
   
+  1️⃣ **초기 렌더링**
+  - render 함수 : 컴포넌트가 어떻게 생겼는지 정의, 작동 정보 지닌 객체 반환
+  ```jsx
+  render() { ... }
+```
+  ![image](https://user-images.githubusercontent.com/97418768/178123804-6d310f85-5cbb-4551-9cf2-4d3709b8df7b.png)
   
+  - render 함수 실행 -> 컴포넌트 재귀적으로 렌더링 -> HTML 마크업 만듦 -> 실제 페이지의 DOM 요소 안에 주입 -> 이벤트 적용
+  
+  2️⃣ **조화 과정(업데이트)**
+ 1) 컴포넌트는 새로운 데이터를 가지고 render 함수 재호출
+ 2) JS로 최소한의 연산으로 뷰를 비교
+  ![image](https://user-images.githubusercontent.com/97418768/178123937-0c8fa9ed-04ec-493d-99d1-9ab1a94bd1f6.png)
+  
+ 3) DOM 트리 업데이트
+  
+![image](https://user-images.githubusercontent.com/97418768/178123952-3a48d238-1147-43f7-a023-b62baaabb2c0.png)
+
 ## 📖1.2 리액트의 특징
   ### 💡 Virtual DOM
+  - **🔥DOM(Document Object Model)**
+    - 객체로 문서 구조를 표현하는 방법(XML, HTML로 작성)
+  ![image](https://user-images.githubusercontent.com/97418768/178124053-ee3bd821-876e-4179-9adf-cec3f079987e.png)
+    - 문제점: 동적 UI에 최적화X
+  
+  - **🔥Virtual Dom**
+    - DOM 업데이트 추상화한 자바스크립트 객체를 구성하여 사용 -> DOM 처리 횟수 최소화, 효율적 진행
+    - 업데이트 3가지 절차 (조화과정)
+    
+  
   ### 💡 기타 특징
   
 ## 📖1.3 작업 환경 설정
