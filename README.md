@@ -169,7 +169,36 @@
   return <div>{name==='리액트' && <h1>리액트입니다.</h1>}</div>;
 }
   ``` 
- 
+ ### 💡 undefined를 렌더링하지 않기
+  - 어떤 값이 undefined인 경우
+    - OR(||)연산자 사용
+    - JSX 내부에서 undefined 렌더링은 가능
+  ```JSX
+  function App() {
+ const name=undefined;
+ return <div>{name||'리액트'}</div>;
+}
+  ```
+ ### 💡 인라인 스타일링
+  - DOM 요소에 스타일 적용할 때는 **객체 형태**로 넣어주어야 함
+  ```JSX
+  function App() {
+  const name='리액트';
+  return(
+    <div
+    style={{
+      //background-color는 backgroundColor와 같이 -가 사라지고 카멜 표기법으로 작성
+      backgroundColor:'black',
+      color:'aqua',
+      fontSize:'48px', //font-size -> fontSize
+      fontWeight:'bold', //font-weight -> fontWeight
+      padding:16 //단위를 생략하면 px로 지정 
+    }}
+    >{name}</div>
+  )
+}
+  ```
+  
   ## 📖2.3 ESLint와 Prettier 적용하기
   ## 📖2.4 정리
   </div>
