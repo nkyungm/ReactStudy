@@ -73,6 +73,10 @@
   https://git-scm.com/download/
   
   ### 💡 create-react-app으로 프로젝트 생성하기
-  
+  - 프로젝트 작업 환경 구축해 주는 도구
+  `$ yarn create react-app hello-react` (yarn create react-app <프로젝트 이름>)
+  - 리액트 개발 전용 서버 구동
+  `$ cd hello-start`
+  `$ yarn start #또는 npm start`
 </div>
 </detail>
