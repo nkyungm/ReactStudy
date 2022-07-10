@@ -249,12 +249,55 @@
   <details>
 <summary>📙3장 컴포넌트</summary>
 <div markdown="3">
-
+  
 ## 📖3.1 클래스형 컴포넌트
-### 💡 리액트 이해
+- 컴포넌트 선언 방식 : 함수 컴포넌트, 클래스형 컴포넌트
+  
+🔥 함수 컴포넌트
+  - 선언이 편함, 메모리 자원 적게 사용
+  
+🔥 클래스형 컴포넌트
+  - state 기능 및 라이프 사이클 기능, 임의 메서드 정의 가능
+```JSX
+import { Component } from "react";
+import "./App.css";
+
+class App extends Component {
+  render(){
+    const name='react';
+    return<div className='react'>{name}</div>;
+  }
+}
+export default App;
+  ```
+  <details>
+<summary>📌ES6의 클래스 문법</summary>
+<div markdown="1">
+  
+  - prototype 대신 class 사용 가능
+  ```JSX
+  class Dog{
+  constructor(name){
+    this.name=name;
+  }
+  say(){
+    console.log(this.name+': 멍멍');
+  }
+}
+
+const dog=new Dog('흰둥이');
+dog.say(); //흰둥이: 멍멍
+```
+  
+  </div>
+  </details>
 ## 📖3.2 첫 컴포넌트 생성
+  ### 💡 src 디렉터리에 MyComponent.js 파일 생성
+  ### 💡 코드 작성하기
+  ### 💡 모듈 내보내기 및 불러오기
 ## 📖3.3 props
 ## 📖3.4 state
 ## 📖3.5 state를 사용할 때 주의 사항
+  
   </div>
   </details>
