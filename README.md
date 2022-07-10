@@ -198,7 +198,24 @@
   )
 }
   ```
-  
+ ### 💡 class 대신 className
+  ```CSS
+  .react{
+  background: aqua;
+  color: black;
+  font-size: 48px;
+  font-weight: bold;
+  padding: 16px;
+}
+  ```
+  ```JSX
+  function App() {
+  const name='리액트';
+  return(
+    <div className='react'>{name}</div>
+  )
+}
+  ```
   ## 📖2.3 ESLint와 Prettier 적용하기
   ## 📖2.4 정리
   </div>
