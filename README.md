@@ -74,9 +74,39 @@
   
   ### 💡 create-react-app으로 프로젝트 생성하기
   - 프로젝트 작업 환경 구축해 주는 도구
-  `$ yarn create react-app hello-react` (yarn create react-app <프로젝트 이름>)
+  
+  `$ yarn init`
+  
+  `$ yarn create react-app hello-react #yarn create react-app <프로젝트 이름>`
+  
   - 리액트 개발 전용 서버 구동
+  
   `$ cd hello-start`
+  
   `$ yarn start #또는 npm start`
+  
+![image](https://user-images.githubusercontent.com/97418768/178141188-9525ba1c-ac19-4a60-a275-53c218864c07.png)
+
 </div>
-</detail>
+</details>
+  
+<details>
+<summary>📙2장 JSX</summary>
+<div markdown="2">
+  
+  ## 📖2.1 JSX란?
+  - 자바스크립트의 확장 문법, XML과 유사
+  - 브라우저가 실행되기 전에 코드가 번들링되는 과정에서 바벨을 사용해 일반 자바스크립트 형태의 코드로 변환
+    - 바벨(Babel) : 다양한 종류의 버전의 브라우저에서 사용 가능하도록 코드 변환기
+  
+  ![image](https://user-images.githubusercontent.com/97418768/178141937-a42c703a-e420-4797-b8de-14489a571327.png)
+
+  ## 📖2.2 JSX의 장점
+  ### 💡 1. 가독성이 높고 익숙함
+  ### 💡 2. 높은 활용도
+  - 
+  ## 📖2.3 JSX 문법
+  ## 📖2.4 ESLint와 Prettier 적용하기
+  ## 📖2.5 정리
+  </div>
+  </details>
