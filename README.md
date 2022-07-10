@@ -534,7 +534,7 @@ export default MyComponent;
   - 컴포넌트 내부에서 바뀔 수 있는 값
   - 클래스형 컴포넌트가 지니고 있는 state, 함수 컴포넌트에서 useState라는 함수를 통해 사용하는 state
  ### 💡 클래스형 컴포넌트의 state
-  - `constructor` : 컴포넌트의 생성자 메서드, 반드시 `super(props)` 호출!
+  - `constructor` : 컴포넌트의 생성자 메서드, 반드시 `super(props)` 호출!, state 초깃값 지정 위함
   - 컴포넌트의 state는 **객체 형식**
   ```JSX
   import { Component } from "react";
@@ -612,6 +612,56 @@ class Counter extends Component {
 }
 export default Counter;
 ```
+ **🔥 state를 constructor에서 꺼내기**
+  - constructor 메서드 선언하지 않고 state의 초깃값 설정 가능
+  ```JSX
+ import { Component } from "react";
+
+class Counter extends Component {
+  state = {
+    number: 0,
+    fixedNumber: 0,
+  };
+```
+ **🔥 this.setState에 객체 대신 함수 인자 전달하기**
+  - `prevState`:기존 상태, `props`: 현재 지니고 있는 props, 생략 가능
+  ```JSX
+  this.setState((prevState,props) => {
+     return {
+       // 업데이트하고 싶은 내용
+     };
+  });
+  ```
+  - 화살표 함수에서 바로 객체로 반환
+  ```JSX
+  onClick={() => {
+            this.setState((prevState) => {
+              return {
+                number: prevState.number + 1,
+              };
+            });
+            //위 코드와 아래 코드는 완전히 똑같은 기능
+            //아래 코드는 함수에서 바로 객체를 반환한다는 의미
+            this.setState((prevState) => ({
+              number: prevState.number + 1,
+            }));
+          }}
+   ```
+ **🔥 this.setState가 끝난 후 특정 작업 실행하기**
+  - setState의 두 번째 파라미터인 콜백(callback) 함수 사용
+  ```JSX
+  onClick={() => {
+            this.setState(
+              {
+                number: number + 1,
+              },
+              () => {
+                console.log("방금 setState가 호출되었습니다.");
+                console.log(this.state);
+              }
+            );
+          }}
+  ```
 ## 📖3.5 state를 사용할 때 주의 사항
   
   </div>
