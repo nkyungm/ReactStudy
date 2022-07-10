@@ -359,14 +359,67 @@ export default App;
 - props 값은 컴포넌트 함수의 파라미터로 받아와 사용 가능
 - JSX 내부에서 {} 기호로 감싸줌
 ```JSX
-const MyComponent = props => {
+const MyComponent = (props) => {
   return <div>안녕하세요, 제 이름은 {props.name}입니다.</div>;
 };
 
 export default MyComponent;
 ```
 ### 💡 컴포넌트를 사용할 때 props 값 지정하기
+```JSX
+  //App.js
+import MyComponent from "./MyComponent";
 
+const App = () => {
+  return <MyComponent name="React" />;
+};
+
+export default App;
+```
+ ### 💡 props 기본값 설정: defaultProps
+  ```JSX
+  const MyComponent = (props) => {
+  return <div>안녕하세요, 제 이름은 {props.name}입니다.</div>;
+};
+
+MyComponent.defaultProps = {
+  name: "기본 이름",
+};
+
+export default MyComponent;
+```
+### 💡 태그 사이의 내용을 보여 주는 children
+  - 리액트 컴포넌트 태그 사이의 내용을 보여주는 `props.children`
+ ```JSX
+  //App.js
+import MyComponent from "./MyComponent";
+
+const App = () => {
+  return <MyComponent>리액트</MyComponent>;
+};
+
+export default App;
+```
+```JSX
+  const MyComponent = (props) => {
+  return (
+    <div>
+      안녕하세요, 제 이름은 {props.name}입니다.
+      <br />
+      children 값은 {props.children}
+      입니다.
+    </div>
+  );
+};
+
+MyComponent.defaultProps = {
+  name: "기본 이름",
+};
+
+export default MyComponent;
+```
+ ### 💡 비구조화 할당 문법을 통해 props 내부 값 추출하기
+  
 ## 📖3.4 state
 ## 📖3.5 state를 사용할 때 주의 사항
   
