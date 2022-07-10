@@ -51,8 +51,18 @@
   ### 💡 Node.js와 npm
   - 설치: Windows
   
+  https://nodejs.org/ko/download/
+  
+  ![image](https://user-images.githubusercontent.com/97418768/178124389-7730337c-7b45-4d98-ba5f-7997a5f14049.png)
+  
   ### 💡 yarn
+  - npm보다 더 빠르고 효율적인 캐시 시스템과 기타 부가 기능 제공
+  
+  `$ npm install --global yarn`
+  
   ### 💡 에디터 설치
+  - VS Code 설치
+  
   ### 💡 Git 설치
   ### 💡 create-react-app으로 프로젝트 생성하기
   
