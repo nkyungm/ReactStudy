@@ -200,8 +200,8 @@
   ```
  ### 💡 class 대신 className
   ```CSS
-  //App.css
-  .react{
+/* App.css */
+.react{
   background: aqua;
   color: black;
   font-size: 48px;
@@ -291,9 +291,39 @@ dog.say(); //흰둥이: 멍멍
   
   </div>
   </details>
+  
 ## 📖3.2 첫 컴포넌트 생성
   ### 💡 src 디렉터리에 MyComponent.js 파일 생성
   ### 💡 코드 작성하기
+  ```JSX
+  const MyComponent=()=>{
+    return <div>나의 새롭고 멋진 컴포넌트</div>;
+}
+
+export default MyComponent;
+  ```
+  
+  <details>
+<summary>📌ES6의 화살표 함수</summary>
+<div markdown="1">
+  
+  - ES6 문법에서 함수를 표현하는 새로운 방식, 함수를 파라미터로 전달할 때 유용
+  - 값을 연산하여 바로 반환할 때 가독성 높음
+  - 함수 컴포넌트 선언할 때, function 키워드와 화살표 함수 문법 큰 차이X
+  ```JSX
+  setTimeout(function(){
+    console.log('hello world');
+},1000);
+
+setTimeout(()=>{
+    console.log('hello world');
+},1000);
+  ```
+  
+  
+  </div>
+  </details>
+  
   ### 💡 모듈 내보내기 및 불러오기
 ## 📖3.3 props
 ## 📖3.4 state
