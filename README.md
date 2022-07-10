@@ -320,11 +320,21 @@ setTimeout(()=>{
 },1000);
   ```
   
+  </div>
+  </details>
   
+  <details>
+<summary>📌Reactjs Code Snippet을 사용하여 코드 생성하기</summary>
+<div markdown="2">
+  
+  - 에디터에서 rsc를 입력하고 `Enter` 누르기
+  ![image](https://user-images.githubusercontent.com/97418768/178147814-6ee5adba-da6c-45a4-832a-21190e5fe839.png)
+
   </div>
   </details>
   
   ### 💡 모듈 내보내기 및 불러오기
+  
 ## 📖3.3 props
 ## 📖3.4 state
 ## 📖3.5 state를 사용할 때 주의 사항
