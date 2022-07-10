@@ -662,7 +662,80 @@ class Counter extends Component {
             );
           }}
   ```
+ ### 💡 함수 컴포넌트에서 useState 사용하기
+  **🔥 배열 비구조화 할당**
+  - 객체 비구조화 할당과 비슷, 배열 안에 들어 있는 값을 쉽게 추출하기 위한 문법
+  ```JSX
+  const array=[1,2];
+  const [one,two]=array;
+  ```
+  **🔥 useState 사용하기**
+  - useState 함수 인자에는 상태의 초깃값 넣어줌(값 형태 자유)
+  - 함수 호출 -> 배열 반환 [현재 상태,상태를 바꾸어 주는 함수(Setter 함수)]
+  ```JSX
+  import { useState } from "react";
+
+const Say = () => {
+  const [message, setMessage] = useState(""); //"" : 초깃값
+  //[현재 상태,상태를 바꾸어 주는 함수(Setter 함수)] 
+  const onClickEnter = () => setMessage("안녕하세요!");
+  const onClickLeave = () => setMessage("안녕히 가세요!");
+
+  return (
+    <div>
+      <button onClick={onClickEnter}>입장</button>
+      <button onClick={onClickLeave}>퇴장</button>
+      <h1>{message}</h1>
+    </div>
+  );
+};
+
+export default Say;
+```
+ ```JSX
+ //App.js
+import Say from "./Say";
+
+const App = () => {
+  return <Say />;
+};
+
+export default App;
+```
+**🔥 한 컴포넌트에 useState 여러 번 사용하기**
+  ```JSX
+  import { useState } from "react";
+
+const Say = () => {
+  const [message, setMessage] = useState("");
+  const onClickEnter = () => setMessage("안녕하세요!");
+  const onClickLeave = () => setMessage("안녕히 가세요!");
+
+  const [color, setColor] = useState("black");
+
+  return (
+    <div>
+      <button onClick={onClickEnter}>입장</button>
+      <button onClick={onClickLeave}>퇴장</button>
+      <h1 style={{ color }}>{message}</h1>
+      <button style={{ color: "red" }} onClick={() => setColor("red")}>
+        빨간색
+      </button>
+      <button style={{ color: "green" }} onClick={() => setColor("green")}>
+        초록색
+      </button>
+      <button style={{ color: "blue" }} onClick={() => setColor("blue")}>
+        파란색
+      </button>
+    </div>
+  );
+};
+
+export default Say;
+```
 ## 📖3.5 state를 사용할 때 주의 사항
-  
+ - state 값을 변경할 때
+    - setState 사용(클래스형 컴포넌트)
+    - useState를 통해 전달받은 세터 함수 사용 (함수 컴포넌트)
   </div>
   </details>
