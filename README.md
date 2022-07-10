@@ -334,6 +334,23 @@ setTimeout(()=>{
   </details>
   
   ### 💡 모듈 내보내기 및 불러오기
+  **- 모듈 내보내기(export)**
+  - 다른 파일에서 이 파일을 import 할 때, MyComponent 클래스 불러오도록 설정
+  ```JSX
+  export default MyComponent;
+  ```
+  **- 모듈 불러오기(import)**
+  - App 컴포넌트에서 MyComponent 컴포넌트 불러와서 사용
+  ```JSX
+  //App.js
+import MyComponent from "./MyComponent"
+
+const App=()=>{
+  return <MyComponent/>;
+};
+
+export default App;
+  ```
   
 ## 📖3.3 props
 ## 📖3.4 state
