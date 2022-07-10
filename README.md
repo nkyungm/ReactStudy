@@ -63,7 +63,15 @@
   ### 💡 에디터 설치
   - VS Code 설치
   
+  https://code.visualstudio.com/Download
+  
+  ![image](https://user-images.githubusercontent.com/97418768/178139974-0a6e40c8-06bd-4a59-af9f-bd53c9695ff3.png)
+
   ### 💡 Git 설치
+  - 형상 관리 도구(configuration Management Tool), 프로젝트 버전 관리 및 협업
+  
+  https://git-scm.com/download/
+  
   ### 💡 create-react-app으로 프로젝트 생성하기
   
 </div>
