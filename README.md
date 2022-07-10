@@ -245,3 +245,16 @@
   
   </div>
   </details>
+  
+  <details>
+<summary>📙3장 컴포넌트</summary>
+<div markdown="3">
+
+## 📖3.1 클래스형 컴포넌트
+### 💡 리액트 이해
+## 📖3.2 첫 컴포넌트 생성
+## 📖3.3 props
+## 📖3.4 state
+## 📖3.5 state를 사용할 때 주의 사항
+  </div>
+  </details>
