@@ -328,6 +328,7 @@ setTimeout(()=>{
 <div markdown="2">
   
   - 에디터에서 rsc를 입력하고 `Enter` 누르기
+  
   ![image](https://user-images.githubusercontent.com/97418768/178147814-6ee5adba-da6c-45a4-832a-21190e5fe839.png)
 
   </div>
@@ -530,8 +531,52 @@ MyComponent.propTypes = {
 export default MyComponent;
 ```
 ## 📖3.4 state
-  - 
+  - 컴포넌트 내부에서 바뀔 수 있는 값
+  - 클래스형 컴포넌트가 지니고 있는 state, 함수 컴포넌트에서 useState라는 함수를 통해 사용하는 state
  ### 💡 클래스형 컴포넌트의 state
+  - `constructor` : 컴포넌트의 생성자 메서드, 반드시 `super(props)` 호출!
+  - 컴포넌트의 state는 **객체 형식**
+  ```JSX
+  import { Component } from "react";
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    //state의 초깃값 설정하기
+    this.state = {
+      number: 0,
+    };
+  }
+  render() {
+    const { number } = this.state; //state를 조회할 때는 this.state로 조회
+    return (
+      <div>
+        <h1>{number}</h1>
+        <button
+          //onClick을 통해 버튼이 클릭되었을 때 호출할 함수를 지정
+          onClick={() => { //이벤트로 설정할 함수를 넣어 줄 때는 화살표 함수 문법!
+            //this.setState를 사용하여 state에 새로운 값을 넣을 수 있음
+            this.setState({ number: number + 1 });
+          }}
+        >
+          +1
+        </button>
+      </div>
+    );
+  }
+}
+export default Counter;
+  ```
+ ```JSX
+  //App.js
+import Counter from "./Counter";
+
+const App = () => {
+  return <Counter />;
+};
+
+export default App;
+```
 ## 📖3.5 state를 사용할 때 주의 사항
   
   </div>
