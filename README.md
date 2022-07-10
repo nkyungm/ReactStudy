@@ -353,6 +353,20 @@ export default App;
   ```
   
 ## 📖3.3 props
+- properties를 줄인 표현으로 컴포넌트 속성을 설정할 때 사용하는 요소
+- props 값은 해당 컴포넌트를 불러와 사용하는 부모 컴포넌트에서 설정 가능
+### 💡 JSX 내부에서 props 렌더링
+- props 값은 컴포넌트 함수의 파라미터로 받아와 사용 가능
+- JSX 내부에서 {} 기호로 감싸줌
+```JSX
+const MyComponent = props => {
+  return <div>안녕하세요, 제 이름은 {props.name}입니다.</div>;
+};
+
+export default MyComponent;
+```
+### 💡 컴포넌트를 사용할 때 props 값 지정하기
+
 ## 📖3.4 state
 ## 📖3.5 state를 사용할 때 주의 사항
   
