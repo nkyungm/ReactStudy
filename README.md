@@ -773,7 +773,7 @@ export default IterationSample;
 ```JSX
   //App.js
 import { Component } from "react";
-import IterationSample from "./IterationSample";
+import IterationSample from "./IterationSample"; //IterationSample 컴포넌트 불러와 렌더링
 
 class App extends Component {
   render() {
@@ -784,7 +784,81 @@ class App extends Component {
 export default App;
 ```
 ## 📖6.3 key
-## 📖6.4 응용
+  - 데이터가 가진 고유의 값으로 설정
+  - map 함수의 인자로 전달되는 함수 내부에서 컴포넌트 props 설정하듯 설정
+  - Virtual Dom 비교하는 과정에서 key로 바로 변화 감지 가능
+  ```JSX
+  const IterationSample = () => {
+  const names = ["눈사람", "얼음", "눈", "바람"];
+  const nameList = names.map((name, index) => <li key={index}>{name}</li>);
+  //고유의 값이 없을 때만 index를 key 값으로 설정
+  return <ul>{nameList}</ul>;
+};
 
+export default IterationSample;
+```
+## 📖6.4 응용(동적인 배열 렌더링)
+  ###💡 초기 상태 설정하기
+    - useState를 사용해 상태 설정
+    - 3가지 상태 : 데이터 배열, 텍스를 입력 input 상태, 배열에 새로운 항목 추가할 때 사용하는 고유 id 상태
+  ```JSX
+  import { useState } from "react";
+
+const IterationSample = () => {
+  const [names, setNames] = useState([ //해당 객체는 문자열과 고유 id 값이 있음
+    { id: 1, text: "눈사람" },
+    { id: 2, text: "얼음" },
+    { id: 3, text: "눈" },
+    { id: 4, text: "바람" },
+  ]);
+  const [inputText, setInputText] = useState("");
+  const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id
+
+  const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  //map함수에서 name.id를 key 값으로 설정
+  return <ul>{nameList}</ul>;
+};
+
+export default IterationSample;
+```
+  ### 💡 데이터 추가 기능 구현하기
+    - `concat` : 배열에 새 항목 추가(새로운 배열을 만들어줌)
+  ```JSX
+  import { useState } from "react";
+
+const IterationSample = () => {
+  const [names, setNames] = useState([
+    { id: 1, text: "눈사람" },
+    { id: 2, text: "얼음" },
+    { id: 3, text: "눈" },
+    { id: 4, text: "바람" },
+  ]);
+  const [inputText, setInputText] = useState("");
+  const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id
+
+  const onChange = (e) => setInputText(e.target.value);
+  const onClick = () => {
+    const nextNames = names.concat({
+      id: nextId, //nextId 값을 id로 설정하고
+      text: inputText,
+    });
+    setNextId(nextId + 1); //nextId 값에 1을 더해준다
+    setNames(nextNames); //names 값을 업데이트
+    setInputText(""); //inputText를 지운다
+  };
+  const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  //name.id를 key 값으로 설정
+  return (
+    <>
+      <input value={inputText} onChange={onChange} />
+      <button onClick={onClick}>추가</button>
+      <ul>{nameList}</ul>
+    </>
+  );
+};
+
+export default IterationSample;
+```
+  ### 💡 데이터 제거 기능 구현하기
   </div>
   </details>
