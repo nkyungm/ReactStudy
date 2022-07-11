@@ -745,8 +745,44 @@ export default Say;
 <div markdown="4">
 
 ## 📖6.1 자바스크립트 배열의 map() 함수
-  ### 💡 리액트 이해
+  - 반복되는 컴포넌트 렌더링에 사용
+  - 파라미터로 전달된 함수를 사용해서 배열 내 각 요소를 원하는 규칙에 따라 변환한 후 그 결과로 새로운 배열 생성
+  ### 💡 map 문법
+  `arr.map(callback,[thisArg])`
+  
+  - callback: 새로운 배열의 요소를 생성하는 함수, 파라미터 3가지
+    - currentValue: 현재 처리 요소
+    - index: 현재 처리 요소 index 값
+    - array: 현재 처리 원본 배열
+  - thisArg(선택 항목): callback 함수 내부에서 사용할 this 레퍼런스
+  ```JSX
+  const numbers=[1,2,3,4,5];
+  const result=numbers.map(num=>num*num);
+  console.log(result);
+  ```
 ## 📖6.2 데이터 배열을 컴포넌트 배열로 변환하기
+ ```JSX
+  const IterationSample = () => {
+  const names = ["눈사람", "얼음", "눈", "바람"];
+  const nameList = names.map((name) => <li>{name}</li>);
+  return <ul>{nameList}</ul>;
+};
+
+export default IterationSample;
+```
+```JSX
+  //App.js
+import { Component } from "react";
+import IterationSample from "./IterationSample";
+
+class App extends Component {
+  render() {
+    return <IterationSample />;
+  }
+}
+
+export default App;
+```
 ## 📖6.3 key
 ## 📖6.4 응용
 
