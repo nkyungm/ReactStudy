@@ -1045,7 +1045,7 @@ const Counter = () => {
 
 export default Counter;
 ```
-💡 useReducer로 인풋 상태 관리하기
+### 💡 useReducer로 인풋 상태 관리하기
   - setState를 해준 것과 유사한 방식으로 처리 가능
   - 인풋의 개수가 많아져도 코드를 짧고 깔끔하게 유지 가능
 ```JSX
@@ -1090,7 +1090,72 @@ const Info = () => {
 export default Info;
 ```
 ## 📖8.4 useMemo
+ - 함수 컴포넌트 내부에서 발생하는 연산 최적화
+ - 렌더링하는 과정에서 특정 값이 바뀌었을 때만 연산을 실행, 원하는 값이 바뀌지 않았다면 이전에 연산했던 결과를 다시 사용하는 방식
+ ```JSX
+import { useState, useMemo } from "react";
+
+const getAverage = (numbers) => {
+  console.log("평균값 계산 중...");
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState("");
+
+  const onChange = (e) => {
+    setNumber(e.target.value);
+  };
+  const onInsert = () => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  };
+
+  const avg = useMemo(() => getAverage(list), [list]); 
+  //list 배열의 내용이 바뀔 때만 getAverge 함수 호출
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>평균값:</b>
+        {avg}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+```
 ## 📖8.5 useCallback
+  - useMemo와 비슷, 렌더링 성능 최적화 상황에 사용
+  - 만들어 놨던 함수 재사용 가능
+  - `useCallback(생성하고 싶은 함수, 배열(어떤 값이 바뀌었을 때 함수를 새로 생성하는지 명시))`
+```JSX
+ const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState("");
+
+  const onChange = useCallback((e) => {
+    setNumber(e.target.value);
+  }, []); //컴포넌트가 처음 렌더링될 때만 함수 생성, 렌더링될 때 만들었던 함수 재사용
+
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  }, [number, list]); //number 혹은 list가 바뀌었을 때만 함수 생성, 아니면 함수 
+  ```
 ## 📖8.6 useRef
 ## 📖8.7 커스텀 Hooks 만들기
 
