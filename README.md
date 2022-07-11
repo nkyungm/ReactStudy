@@ -917,3 +917,71 @@ export default IterationSample;
 ```
   </div>
   </details>
+  
+<details>
+<summary>📙8장 Hooks</summary>
+<div markdown="5">
+
+## 📖8.1 useState
+  - 가장 기본적인 Hook, 함수 컴포넌트에서도 가변적인 상태 지닐 수 있음
+  - 하나의 useState 함수는 하나의 상태 값만 관리 -> 컴포넌트에서 관리해야 할 상태 여러개면 여러개 useState 사용
+## 📖8.2 useEffect
+  - 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook
+  ```JSX
+  import { useState, useEffect } from "react";
+
+const Info = () => {
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
+  useEffect(() => {
+    console.log("렌더링이 완료되었습니다!");
+    console.log({
+      name,
+      nickname,
+    });
+  });
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const onChangeNickname = (e) => {
+    setNickname(e.target.value);
+  };
+
+  return (
+    <div>
+      <div>
+        <input value={name} onChange={onChangeName} />
+        <input value={nickname} onChange={onChangeNickname} />
+      </div>
+      <div>
+        <b>이름:</b> {name}
+      </div>
+      <div>
+        <b>닉네임:</b> {nickname}
+      </div>
+    </div>
+  );
+};
+
+export default Info;
+```
+```JSX
+import Info from "./Info";
+import "./App.css";
+
+const App = () => {
+  return <Info />;
+};
+
+export default App;
+```  
+  ### 💡 마운트될 때만 실행하고 싶을 때
+  ### 💡 특정 값이 업데이트될 때만 실행하고 싶을 때
+## 📖8.3 useReducer
+## 📖8.4 useMemo
+## 📖8.5 useCallback
+## 📖8.6 useRef
+## 📖8.7 커스텀 Hooks 만들기
+
