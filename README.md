@@ -798,9 +798,12 @@ export default App;
 export default IterationSample;
 ```
 ## 📖6.4 응용(동적인 배열 렌더링)
-  ###💡 초기 상태 설정하기
-    - useState를 사용해 상태 설정
-    - 3가지 상태 : 데이터 배열, 텍스를 입력 input 상태, 배열에 새로운 항목 추가할 때 사용하는 고유 id 상태
+  
+### 💡 초기 상태 설정하기
+  
+  - useState를 사용해 상태 설정
+  - 3가지 상태 : 데이터 배열, 텍스를 입력 input 상태, 배열에 새로운 항목 추가할 때 사용하는 고유 id 상태
+  
   ```JSX
   import { useState } from "react";
 
@@ -821,8 +824,11 @@ const IterationSample = () => {
 
 export default IterationSample;
 ```
-  ### 💡 데이터 추가 기능 구현하기
-    - `concat` : 배열에 새 항목 추가(새로운 배열을 만들어줌)
+  
+### 💡 데이터 추가 기능 구현하기
+  
+ - `concat` : 배열에 새 항목 추가(새로운 배열을 만들어줌)
+  
   ```JSX
   import { useState } from "react";
 
