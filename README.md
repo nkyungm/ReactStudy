@@ -1157,5 +1157,70 @@ export default Average;
   }, [number, list]); //number 혹은 list가 바뀌었을 때만 함수 생성, 아니면 함수 
   ```
 ## 📖8.6 useRef
+  - 함수 컴포넌트에서 ref를 쉽게 사용 가능하게 함
+  - useRef를 사용해 ref 설정 -> useRef를 통해 만든 객체 안의 current 값이 실제 엘리먼트 가리킴
+ ```JSX
+  import { useState, useMemo, useCallback, useRef } from "react";
+
+const getAverage = (numbers) => {
+  console.log("평균값 계산 중...");
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState("");
+  //ref를 위한 변수 선언
+  const inputEl = useRef(null);
+
+  const onChange = useCallback((e) => {
+    setNumber(e.target.value);
+  }, []); //컴포넌트가 처음 렌더링될 때만 함수 생성
+
+  const onInsert = useCallback(() => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+    inputEl.current.focus(); //커서 이동을 원할 때,
+  }, [number, list]); //number 혹은 list가 바뀌었을 때만 함수 생성
+
+  const avg = useMemo(() => getAverage(list), [list]);
+  //list 배열의 내용이 바뀔 때만 getAverge 함수 호출
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} ref={inputEl} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>
+        <b>평균값:</b>
+        {avg}
+      </div>
+    </div>
+  );
+};
+
+export default Average;
+ ```
+  
+ <details>
+<summary>📌ref통한 input 태그 커서/포커스 조정</summary>
+<div markdown="1">
+  - `ref` : DOM에 직접 접근해야할 때 사용
+  - 직접 접근이 필요한 경우
+    - input / textare 등에 커서 조정
+    - DOM 의 크기를 가져와야 할 때
+    - DOM 에서 스크롤 위치를 가져오거나 설정을 해야 할 때
+    - 외부 라이브러리 (플레이어, 차트, 캐로절 등)을 사용 할 때
+  
+  </div>
+  </details>
+  
 ## 📖8.7 커스텀 Hooks 만들기
 
