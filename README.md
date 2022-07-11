@@ -1212,6 +1212,7 @@ export default Average;
  <details>
 <summary>📌ref통한 input 태그 커서/포커스 조정</summary>
 <div markdown="1">
+  
   - `ref` : DOM에 직접 접근해야할 때 사용
   - 직접 접근이 필요한 경우
     - input / textare 등에 커서 조정
@@ -1221,6 +1222,24 @@ export default Average;
   
   </div>
   </details>
-  
+  💡 로컬 변수 사용하기
+   - 로컬 변수 : 렌더링과 상관없이 바뀔 수 있는 값
+   - 렌더링과 관련되지 않은 값을 관리할 때 사용, ref 안의 값이 바뀌어도 컴포넌트가 렌더링X
+  ```JSX
+  import { useRef } from "react";
+
+const RefSample = () => {
+  const id = useRef(1);
+  const setId = (n) => {
+    id.current = n;
+  };
+  const printId = () => {
+    console.log(id.current);
+  };
+  return <div>refsample</div>;
+};
+
+export default RefSample;
+```
 ## 📖8.7 커스텀 Hooks 만들기
 
