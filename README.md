@@ -1009,7 +1009,86 @@ export default App;
   //다른 값들이 필요하다면 추가로 들어감
 }
 ```
-  
+ - `useReducer(리듀서 함수, 해당 리듀서의 기본값)`
+ - 장점: 컴포넌트 업데이트 로직을 컴포넌트 바깥으로 빼낼 수 있음
+```JSX
+  import { useReducer } from "react";
+
+function reducer(state, action) {
+  //action.type에 따라 다른 작업 수행
+  switch (action.type) {
+    case "INCREMENT":
+      return { value: state.value + 1 };
+    case "DECREMENT":
+      return { value: state.value - 1 };
+    default:
+      //아무것도 해당되지 않을 때 기존 상태 반환
+      return state;
+  }
+}
+
+const Counter = () => {
+  const [state, dispatch] = useReducer(reducer, { value: 0 });
+  //state: 현재 가리키고 있는 상태, dispatch: 액션 발생시키는 함수
+  //dispatch(action) => 리듀서 함수 호출
+  //useReducer(리듀서 함수, 해당 리듀서의 기본값)
+  return (
+    <div>
+      <p>
+        현재 카운터 값은 <b>{state.value}</b>입니다.
+      </p>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>+1</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>-1</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+💡 useReducer로 인풋 상태 관리하기
+  - setState를 해준 것과 유사한 방식으로 처리 가능
+  - 인풋의 개수가 많아져도 코드를 짧고 깔끔하게 유지 가능
+```JSX
+import { useReducer } from "react";
+
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+}
+
+const Info = () => {
+  const [state, dispatch] = useReducer(reducer, {
+    name: "",
+    nickname: "",
+  });
+  const { name, nickname } = state;
+
+  //이벤트 객체가 지니고 있는 e.target 값 자체를 액션 값으로 사용
+  const onChange = (e) => {
+    dispatch(e.target);
+  };
+
+  return (
+    <div>
+      <div>
+        {/* input 태그에 name 값을 할당하고 e.target.name을 참조해 setState와 유사하게 처리 */}
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
+      </div>
+      <div>
+        <b>이름:</b> {name}
+      </div>
+      <div>
+        <b>닉네임:</b> {nickname}
+      </div>
+    </div>
+  );
+};
+
+export default Info;
+```
 ## 📖8.4 useMemo
 ## 📖8.5 useCallback
 ## 📖8.6 useRef
