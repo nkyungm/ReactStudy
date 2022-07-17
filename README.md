@@ -27,7 +27,7 @@
  2) JS로 최소한의 연산으로 이전 Virtual Dom에 있던 내용과 현재 내용 비교
   ![image](https://user-images.githubusercontent.com/97418768/178123937-0c8fa9ed-04ec-493d-99d1-9ab1a94bd1f6.png)
   
- 3) 바뀐 부분만 실제 DOM에 업데이트
+ 3) 바뀐 부분만 실제 DOM에 업데이트.
   
 ![image](https://user-images.githubusercontent.com/97418768/178123952-3a48d238-1147-43f7-a023-b62baaabb2c0.png)
 
