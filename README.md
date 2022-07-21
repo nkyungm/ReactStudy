@@ -24,7 +24,7 @@
   
   2️⃣ **조화 과정(업데이트)**
  1) 컴포넌트는 새로운 데이터를 가지고 render 함수 재호출(전체 UI를 Virtual Dom에 리렌더링)
- 2) JS로 최소한의 연산으로 이전 Virtual Dom에 있던 내용과 현재 내용 비교
+ 2) JS로 최소한의 연산으로 이전 Virtual Dom에 있던 내용과 현재 내용 비교.
   ![image](https://user-images.githubusercontent.com/97418768/178123937-0c8fa9ed-04ec-493d-99d1-9ab1a94bd1f6.png)
   
  3) 바뀐 부분만 실제 DOM에 업데이트.
