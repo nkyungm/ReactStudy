@@ -32,7 +32,7 @@
 ![image](https://user-images.githubusercontent.com/97418768/178123952-3a48d238-1147-43f7-a023-b62baaabb2c0.png)
 
 ## 📖1.2 리액트의 특징
-  ### 💡 Virtual DOM
+  ### 💡 Virtual DOM..
   - **🔥DOM(Document Object Model)**
     - 객체로 문서 구조를 표현하는 방법(XML, HTML로 작성)
   ![image](https://user-images.githubusercontent.com/97418768/178124053-ee3bd821-876e-4179-9adf-cec3f079987e.png)
